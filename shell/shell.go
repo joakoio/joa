@@ -48,19 +48,16 @@ func setFlags(app *cli.App) {
 
 func setMainAction(app *cli.App) {
 	app.Action = func(c *cli.Context) error {
-		name := "someone"
-		if c.NArg() > 0 {
-			name = c.Args()[0]
-		}
-		if Flags.language == "spanish" {
-			fmt.Println("Hola", name)
+		//name := "someone"
+		//if c.NArg() > 0 {
+		//	name = c.Args()[0]
+		//}
 
-			fmt.Println("Starting server!")
-			server.Start()
-		} else {
-			fmt.Println("Hello", name)
-		}
-
+		fmt.Println("Starting server!")
+		//master.Start()
+		//
+		g := server.Goque{}
+		g.Server()
 
 
 		return nil
