@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/urfave/cli"
-	"github.com/joakoio/joa/server"
+	"github.com/joakoio/joa/node/agent/server"
 )
 
 type flags struct {
@@ -54,11 +54,9 @@ func setMainAction(app *cli.App) {
 		//}
 
 		fmt.Println("Starting server!")
-		//master.Start()
-		//
-		g := server.Goque{}
-		g.Server()
 
+		// Init subscriber and server
+		server.GeInstance().StartListening()
 
 		return nil
 	}

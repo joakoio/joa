@@ -1,7 +1,3 @@
-// Hello World client
-// Connects REQ socket to tcp://localhost:5555
-// Sends "Hello" to server.
-
 var zmq = require('zeromq');
 
 // socket to talk to server
@@ -18,9 +14,9 @@ requester.on("message", function(reply) {
     // }
 });
 
-requester.connect("tcp://localhost:5552");
+requester.connect("tcp://localhost:5555");
 
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 10; i++) {
     console.log("Sending request", i, '...');
     requester.send("Hello");
 }
@@ -28,3 +24,5 @@ for (var i = 0; i < 5; i++) {
 process.on('SIGINT', function() {
     requester.close();
 });
+
+// export
